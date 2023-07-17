@@ -106,7 +106,7 @@ L'objectif de cet exercice est d'ajouter une navigation par onglets à notre app
    Pour commencer, nous avons besoin d'installer un nouveau package à notre projet. Ouvrez votre terminal et tapez la commande suivante :
 
    ```bash
-   yarn add @react-navigation/bottom-tabs
+   npm install @react-navigation/bottom-tabs
    ```
 
 2. **Modification du fichier `App.js`.**
@@ -137,7 +137,7 @@ L'objectif de cet exercice est d'ajouter une navigation par onglets à notre app
 
 3. **Testez votre application.**
 
-   Lancez votre application en utilisant la commande `yarn start` dans votre terminal. Vous devriez maintenant voir une barre d'onglets au bas de votre application avec des onglets pour "Home" et "Profile". Vous pouvez basculer entre ces deux écrans en cliquant sur les onglets.
+   Lancez votre application en utilisant la commande `npm start` dans votre terminal. Vous devriez maintenant voir une barre d'onglets au bas de votre application avec des onglets pour "Home" et "Profile". Vous pouvez basculer entre ces deux écrans en cliquant sur les onglets.
 
 
 ## Exercice 3 : Ajout d'images et de styles
