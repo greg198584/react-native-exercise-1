@@ -31,113 +31,64 @@ et article sur mon blog: https://codeurlibre.systeme.io/dbuter-avec-react-native
 ```js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
-    return (
-        <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="Profile" component={ProfileScreen} />
-            </Tab.Navigator>
-        </NavigationContainer>
-    );
+   return (
+           <NavigationContainer>
+              <Stack.Navigator initialRouteName="Home">
+                 <Stack.Screen name="Home" component={HomeScreen} />
+                 <Stack.Screen name="Profile" component={ProfileScreen} />
+              </Stack.Navigator>
+           </NavigationContainer>
+   );
 }
+
 ```
 
 **HomeScreen.js :**
 
 ```js
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-const HomeScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Bienvenue à la maison !</Text>
-            <Image
-                style={styles.image}
-                source={require('../assets/home.png')}
-            />
-            <Text style={styles.text}>Ceci est une démonstration de React Native.</Text>
-        </View>
-    );
-}
+const HomeScreen = ({ navigation }) => {
+   return (
+           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Text>Home Screen</Text>
+              <Button
+                      title="Go to Profile"
+                      onPress={() => navigation.navigate('Profile')}
+              />
+           </View>
+   );
+};
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    title: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    image: {
-        width: 200,
-        height: 200,
-        margin: 15,
-    },
-    text: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
-
-export default ProfileScreen;
+export default HomeScreen;
 ```
 
 **ProfileScreen.js :**
 
 ```js
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-const ProfileScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Mon profil</Text>
-            <Image
-                style={styles.image}
-                source={require('../assets/profil.png')}
-            />
-            <Text style={styles.text}>Ceci est mon profil.</Text>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    title: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    image: {
-        width: 200,
-        height: 200,
-        margin: 15,
-    },
-    text: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
+const ProfileScreen = ({ navigation }) => {
+   return (
+           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Text>Profile Screen</Text>
+              <Button
+                      title="Go to Home"
+                      onPress={() => navigation.navigate('Home')}
+              />
+           </View>
+   );
+};
 
 export default ProfileScreen;
 ```
